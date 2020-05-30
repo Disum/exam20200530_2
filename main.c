@@ -28,6 +28,7 @@ int main(int argc, char **argv)
 	for( k = 0; argv[1][k]!='\n' && argv[1][k]!='\0'; k++ )
 		spaces[(int)argv[1][k]] = 1;
 	spaces[(int)'\n'] = 1;
+	spaces[(int)'\0'] = 1;
 
 	res_read = read_matrix(argv[6], spaces, a, m, n);
 	if( res_read!=MATRIX_SUCCESS )
@@ -48,10 +49,10 @@ int main(int argc, char **argv)
 		return ERROR;
 	}
 
-	printf("Input matrix:\n");
+	printf("Input matrix:\n\n");
 	print_matrix(a, m, n);
 	solve(a, n, i, j);
-	printf("Result:\n");
+	printf("Result:\n\n");
 	print_matrix(a, m, n);
 
 	delete_matrix(a, m*n);

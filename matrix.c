@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "matrix.h"
 #define MAX_LEN 1024
+#define MAX_M 16
+#define MAX_N 16
 
 int read_matrix(char *name, int *spaces, char **a, int m, int n)
 {
@@ -47,11 +49,18 @@ void delete_matrix(char **a, int len)
 
 void print_matrix(char **a, int m, int n)
 {
-	int i, j;
+	int i, j, n_max;
+
+	if( m>MAX_M )
+		m = MAX_M;
+	if( n>MAX_N )
+		n_max = MAX_N;
+	else
+		n_max = n;
 
 	for( i = 0; i<m; i++ )
 	{
-		for( j = 0; j<n; j++)
+		for( j = 0; j<n_max; j++)
 			printf("%s\t", a[i*n + j]);
 
 		printf("\n");
