@@ -22,6 +22,8 @@ int main(int argc, char **argv)
 		fprintf(stderr, "Can not allocate memory!\n");
 		return ERROR;
 	}
+	for( k = 0; k<m*n; k++ )
+		a[k] = 0;
 
 	for( k = 0; k<CHAR_SIZE; k++ )
 		spaces[k] = 0;
